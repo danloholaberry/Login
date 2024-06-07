@@ -1,0 +1,10 @@
+- Se debe ejecutar el código en un server, una vez iniciado se aloja en el port 8081 (el mismo se modifica en el
+archivo .properties).
+- Se debe utilizar un cliente REST para realizar las pruebas correspondientes. Ejemplo POSTMAN.
+- Endpoint para registrar usaurios localhost:8081/api/users/sign-up.
+ Request {
+           "name": "daniel",
+           "email": "daniel_01@gmail.com",
+           "password": "as7aF8df1df"
+         } POST
+ - Endpoint para consultar usuarios localhost:8081/api/users/{id} GET
