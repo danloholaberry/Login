@@ -22,7 +22,7 @@ public class UserDetailResponseTest {
         LocalDateTime now = LocalDateTime.now();
         Phone phone = new Phone(123456789L, 1, "56");
         UserDetailResponse userDetailResponse = new UserDetailResponse(userId, now, now, "token",
-                true, "John", "john@example.com", "Password1",
+                true, "John", "john@example.com",
                 Collections.singletonList(phone));
 
         assertEquals(userId, userDetailResponse.getId());
@@ -32,7 +32,6 @@ public class UserDetailResponseTest {
         assertTrue(userDetailResponse.isActive());
         assertEquals("John", userDetailResponse.getName());
         assertEquals("john@example.com", userDetailResponse.getEmail());
-        assertEquals("Password1", userDetailResponse.getPassword());
         assertEquals(1, userDetailResponse.getPhones().size());
         assertEquals(phone, userDetailResponse.getPhones().get(0));
     }

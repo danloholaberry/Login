@@ -5,6 +5,6 @@ archivo .properties).
  Request {
            "name": "daniel",
            "email": "daniel_01@gmail.com",
-           "password": "as7aF8df1df"
+           "password": "as7aF8dfedf"
          } POST
  - Endpoint para consultar usuarios localhost:8081/api/users/{id} GET

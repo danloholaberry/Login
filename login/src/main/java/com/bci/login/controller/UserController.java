@@ -77,7 +77,6 @@ public class UserController {
                 user.isActive(),
                 user.getName(),
                 user.getEmail(),
-                user.getPassword(),
                 user.getPhones()
         );
 

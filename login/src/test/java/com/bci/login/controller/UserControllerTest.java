@@ -4,14 +4,18 @@ package com.bci.login.controller;
 import com.bci.login.dto.UserDetailResponse;
 import com.bci.login.dto.UserRequest;
 import com.bci.login.dto.UserResponse;
+import com.bci.login.exception.InvalidEmailException;
 import com.bci.login.model.Phone;
 import com.bci.login.model.User;
 import com.bci.login.service.UserService;
 import com.bci.login.util.JwtUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +29,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -42,6 +47,8 @@ class UserControllerTest {
     private UserController userController;
 
     private MockMvc mockMvc;
+
+    private ObjectMapper objectMapper;
 
     @Test
     public void testRegisterUser_Success() throws Exception {
@@ -70,6 +77,7 @@ class UserControllerTest {
         assertTrue(response.getStatusCode().equals(HttpStatus.OK));
 
     }
+
 
     @Test
     public void testGetUserById_UserFound() throws Exception {
